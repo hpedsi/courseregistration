@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <title>Home | Training Courses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --uh-red:#C8102E;--uh-brick:#960C22;--uh-chocolate:#640817;
+            --uh-cream:#FFF9D9;--uh-slate:#54585A;--uh-gold:#F6BE00;
+            --uh-ltgray:#F2F2F2;--text:#212529;--muted:#6c757d;--white:#fff;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.55;color:var(--text);background:var(--white);}
+        a{color:var(--uh-red);text-decoration:none;}
+        a:hover{color:var(--uh-brick);text-decoration:underline;}
+        h1,h2,h3{font-family:'League Gothic',sans-serif;font-weight:normal;text-transform:uppercase;}
+        .container{max-width:1200px;margin:0 auto;padding:0 1.25rem;}
+
+        /* ── Header ── */
+        .uh-header{background:var(--uh-brick);width:100%;position:relative;z-index:100;}
+        .global-nav{background:var(--uh-red);padding:0.5rem 1.25rem;display:flex;align-items:center;justify-content:space-between;}
+        .global-logo img{height:28px;width:auto;}
+        .nav-contact{list-style:none;display:flex;}
+        .nav-contact a{color:#fff;font-weight:bold;padding:0 1rem;font-size:0.95rem;text-decoration:none;}
+        .nav-contact a:hover{color:var(--uh-cream);text-decoration:none;}
+        .site-name-bar{padding:0.5rem 1.25rem;}
+        .site-name-bar h1{font-size:clamp(28px,4vw,56px);color:#fff;letter-spacing:.5px;word-spacing:2px;line-height:1.1;margin:0;}
+        .site-name-bar h1 a{color:#fff;text-decoration:none;}
+        .site-name-bar h1 a:hover{color:var(--uh-cream);text-decoration:none;}
+        .site-nav{background:var(--uh-brick);padding:0 1.25rem;margin-top:-3px;}
+        .site-nav ul{list-style:none;display:flex;flex-wrap:wrap;}
+        .site-nav .nav-link{color:var(--uh-cream);font-family:'Source Sans 3',sans-serif;font-size:clamp(15px,1.5vw,17px);font-weight:bold;padding:0.6rem 0.65rem;display:inline-block;transition:background .2s;}
+        .site-nav .nav-link:hover{background:rgba(0,0,0,.1);color:var(--uh-cream);text-decoration:none;}
+        .site-nav .dd::after{content:"";display:inline-block;margin-left:.3em;vertical-align:.15em;border-top:5px solid currentColor;border-right:5px solid transparent;border-left:5px solid transparent;opacity:.5;}
+
+        /* ── Hero ── */
+        .hero{position:relative;background:linear-gradient(135deg,var(--uh-brick),var(--uh-red) 50%,var(--uh-brick));min-height:380px;display:flex;align-items:stretch;overflow:hidden;}
+        .hero-overlay{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' fill='none' stroke='rgba(255,255,255,.04)' stroke-width='1'/%3E%3C/svg%3E");}
+        .hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:2rem 1.25rem;width:100%;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+        .hero-image{flex:0 0 320px;min-width:200px;min-height:280px;}
+        .hero-image img{width:100%;height:100%;object-fit:cover;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.2);}
+        .hero-text{flex:1;min-width:280px;}
+        .hero-text h2{font-size:clamp(1.5rem,3vw,2rem);color:#fff;margin-bottom:1rem;letter-spacing:.5px;}
+        .hero-text h3{font-size:1.1rem;color:var(--uh-cream);margin:1.25rem 0 .5rem;font-family:'Source Sans 3',sans-serif;font-weight:600;text-transform:none;}
+        .hero-text p{font-size:.95rem;color:rgba(255,255,255,.95);line-height:1.6;margin-bottom:.75rem;}
+        @media(max-width:768px){.hero-content{flex-direction:column;}.hero-image{flex:0 0 auto;max-height:200px;width:100%;}.hero-image img{max-height:200px;object-position:center;}}
+
+        /* ── Sections ── */
+        .section-heading{font-size:1.75rem;letter-spacing:.5px;margin-bottom:1rem;color:var(--text);}
+        .roadmap-section{padding:2rem 0;text-align:center;}
+        .roadmap-section img{width:100%;max-width:1000px;height:auto;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+        .roadmap-caption{font-size:1rem;font-weight:700;margin-top:.75rem;}
+
+        .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0;}
+        @media(max-width:768px){.info-grid{grid-template-columns:1fr;}}
+        .info-card{border:1px solid #dee2e6;border-radius:4px;padding:1.25rem;}
+        .info-card h3{font-size:1.2rem;margin-bottom:.75rem;color:var(--uh-red);display:flex;align-items:center;gap:8px;}
+        .info-card p{font-size:.93rem;line-height:1.6;color:var(--muted);}
+        .signup-form{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+        .signup-form input{padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:.88rem;flex:1;min-width:100px;}
+        .btn-signup{background:var(--uh-red);color:#fff;border:none;padding:8px 20px;border-radius:4px;font-size:.88rem;font-weight:600;cursor:pointer;}
+        .btn-signup:hover{background:var(--uh-brick);}
+
+        .courses-section{padding:2rem 0 3rem;}
+        .category-header{font-family:'League Gothic',sans-serif;font-size:1.3rem;text-transform:uppercase;cursor:pointer;user-select:none;color:var(--uh-red);display:flex;align-items:center;gap:8px;padding:.5rem 0;border-bottom:2px solid var(--uh-red);margin-bottom:.5rem;}
+        .category-header:hover{color:var(--uh-brick);}
+        .category-header .chv{font-size:.65rem;transition:transform .2s;}
+        .category-header.open .chv{transform:rotate(90deg);}
+        .course-list{display:none;padding:0;}
+        .course-list.show{display:block;}
+        .course-item{list-style:none;padding:.6rem .75rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:flex-start;gap:10px;transition:background .1s;}
+        .course-item:hover{background:var(--uh-ltgray);}
+        .course-item:last-child{border-bottom:none;}
+        .course-item .fa-graduation-cap{color:var(--uh-brick);margin-top:3px;flex-shrink:0;}
+        .course-item a{font-size:.95rem;flex:1;color:var(--uh-red);}
+        .ci-icon{color:var(--uh-red);font-size:.8rem;margin-top:3px;flex-shrink:0;}
+
+        /* ── Footer ── */
+        .uh-footer-main{background:var(--uh-red);color:#fff;padding:3rem 0 2rem;font-size:.9rem;}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:2rem;}
+        @media(max-width:768px){.footer-grid{grid-template-columns:1fr;}}
+        .footer-logo img{width:260px;max-width:100%;height:auto;}
+        .footer-desc{font-size:.85rem;line-height:1.5;margin-top:1rem;max-width:380px;color:rgba(255,255,255,.85);}
+        .uh-footer-main h2{color:#fff;font-size:1.25rem;font-weight:normal;text-transform:uppercase;margin-bottom:1.25rem;position:relative;padding-bottom:.75rem;font-family:'League Gothic',sans-serif;}
+        .uh-footer-main h2::after{content:'';position:absolute;left:0;bottom:0;width:2.5rem;height:2px;background:var(--uh-cream);}
+        .fl-items{list-style:none;padding:0;}
+        .fl-items a{color:var(--uh-cream);font-size:.9rem;line-height:2;}
+        .fl-items a:hover{color:#fff;}
+        .nl-text{font-size:.85rem;color:var(--uh-cream);line-height:1.5;margin-bottom:1rem;}
+        .btn-sub{background:var(--uh-cream);color:var(--uh-red);font-size:1rem;font-weight:bold;text-transform:uppercase;border:none;padding:.75rem 1.5rem;border-radius:5px;cursor:pointer;}
+        .btn-sub:hover{background:#fff;}
+        .uh-footer-compliance{background:var(--uh-slate);color:#fff;padding:1.25rem 0;font-size:.85rem;line-height:1.8;}
+        .comp-links{display:flex;flex-wrap:wrap;align-items:center;}
+        .comp-links .sep{color:rgba(255,255,255,.4);margin:0 .4rem;font-size:.8rem;}
+        .comp-links a{color:var(--uh-cream);font-size:.85rem;}
+        .comp-links a:hover{color:#fff;}
+        .comp-links .hl a{color:var(--uh-gold);}
+        .comp-links .hl a:hover{color:#fff;}
+
+        .btt{position:fixed;bottom:20px;right:20px;background:var(--uh-red);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:999;border:none;font-size:1.1rem;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+        .btt.visible{opacity:1;}
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="uh-header">
+    <div class="global-nav">
+        <div class="global-logo"><a href="index.html"><img src="uh-secondary.svg" alt="University of Houston"></a></div>
+        <ul class="nav-contact"><li><a href="mailto:contact@hpedsi.uh.edu">Contact</a></li></ul>
+    </div>
+    <div class="site-name-bar"><h1><a href="index.html">Hewlett Packard Enterprise Data Science Institute</a></h1></div>
+    <nav class="site-nav">
+        <ul>
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link dd" href="#">Education</a></li>
+            <li><a class="nav-link dd" href="#">Research Computing Data Core</a></li>
+            <li><a class="nav-link dd" href="#">News &amp; Events</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-image">
+            <img src="UH-rad-student-laptop.jpg" alt="UH student with laptop">
+        </div>
+        <div class="hero-text">
+            <h2>HPE DSI Courses</h2>
+            <p>HPE DSI awards digital Badges to students who complete and pass each of our courses. These courses do not affect students' University GPA or Grade Point. We recommend you follow the HPE DSI course roadmap when picking courses.</p>
+            <p>HPE DSI courses are free for active University of Houston System (UHS) students, staff or faculty and $250/course for non-UH individuals.</p>
+            <h3>How It Works</h3>
+            <p>Each program begins with 101 Intro to HPC, a prerequisite for all HPE DSI courses, followed by a choice of scripting languages (R, Python, Julia) or C++ for scientific programming. Students can then advance to specialized courses like Machine Learning, Deep Learning, GPU Programming, or Bioinformatics. Mandatory attendance of at least 12 hours of synchronous instruction is required for pass/fail grades and badges.</p>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN -->
+<div class="container">
+    <section class="roadmap-section">
+        <h2 class="section-heading">Training Roadmap</h2>
+        <img src="Roadmap.png" alt="HPE DSI Training Roadmap">
+        <p class="roadmap-caption">HPE DSI Training Roadmap. We recommend you follow the roadmap when picking courses.</p>
+    </section>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <h3><i class="fas fa-star"></i> Register for Courses</h3>
+            <p>HPE DSI offers several HPC training courses. The courses are free for current UH community only and registration is required. These courses have no effect on GPA or Credit Hours.</p>
+        </div>
+        <div class="info-card">
+            <h3><i class="fas fa-question-circle"></i> How to Use This Page?</h3>
+            <p>Click on a course below to see details, schedule, and registration instructions. Follow the steps listed on each course page to complete enrollment.</p>
+        </div>
+        <div class="info-card">
+            <h3><i class="fas fa-envelope"></i> Sign Up for Email Alerts</h3>
+            <p>Sign up to receive notifications about upcoming events and classes.</p>
+            <div class="signup-form">
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <button class="btn-signup" onclick="alert('Thank you! You will receive email alerts.')">Signup</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="courses-section">
+        <h2 class="section-heading">Summer 2026 Courses</h2>
+        <div>
+            <div class="category-header open" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+                <i class="fas fa-chevron-right chv"></i> Summer 2026
+            </div>
+            <ul class="course-list show">
+                <li class="course-item"><i class="fas fa-graduation-cap"></i><a href="course-dar-su26.html">101 Introduction to cluster computing: Linux, shell scripting, queuing systems, cluster architecture — Mon Wed 5/27/2026 – 7/1/2026, 10:00 AM – 11:30 AM</a><i class="fas fa-info-circle ci-icon"></i></li>
+                <li class="course-item"><i class="fas fa-graduation-cap"></i><a href="course-dar-su26.html">211 Data Analysis in R — Mon Wed 5/27/2026 – 6/29/2026, 2:30 PM – 4:00 PM</a><i class="fas fa-info-circle ci-icon"></i></li>
+                <li class="course-item"><i class="fas fa-graduation-cap"></i><a href="course-dar-su26.html">212 Scientific Programming with Python — Tue Thur 5/26/2026 – 6/30/2026, 10:00 AM – 11:30 AM</a><i class="fas fa-info-circle ci-icon"></i></li>
+                <li class="course-item"><i class="fas fa-graduation-cap"></i><a href="course-dar-su26.html">251 Data Visualization using Paraview and Tableau — Mon Wed 5/27/2026 – 6/29/2026, 1:00 PM – 2:30 PM</a><i class="fas fa-info-circle ci-icon"></i></li>
+                <li class="course-item"><i class="fas fa-graduation-cap"></i><a href="course-dar-su26.html">261 Principles of Data Management — Tue Thur 5/26/2026 – 6/30/2026, 02:30 PM – 04:00 PM</a><i class="fas fa-info-circle ci-icon"></i></li>
+                <li class="course-item"><i class="fas fa-graduation-cap"></i><a href="course-dar-su26.html">311 Introduction to Machine Learning — Tues Thur 5/26/2026 – 6/30/2026, 2:30 PM – 4:00 PM</a><i class="fas fa-info-circle ci-icon"></i></li>
+                <li class="course-item"><i class="fas fa-graduation-cap"></i><a href="course-dar-su26.html">312 Introduction to Deep Learning — Tues Thurs 7/07/2026 – 8/06/2026, 2:30 PM – 4:00 PM</a><i class="fas fa-info-circle ci-icon"></i></li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="uh-footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><a href="index.html"><img src="uh-footer-logo.svg" alt="HPE Data Science Institute - University of Houston"></a></div>
+                    <p class="footer-desc">The Hewlett Packard Enterprise Data Science Institute is a University Research Institute in the UH Division of Research.</p>
+                </div>
+                <div>
+                    <h2>Quick Links</h2>
+                    <ul class="fl-items"><li><a href="#">HPE Gift</a></li><li><a href="#">Micro-Credential Programs</a></li><li><a href="mailto:contact@hpedsi.uh.edu">Contact</a></li></ul>
+                </div>
+                <div>
+                    <h2>Learn More</h2>
+                    <ul class="fl-items"><li><a href="#">Research Computing Data Core</a></li><li><a href="#">UH Division of Research</a></li><li><a href="#">UH Research Calendar</a></li></ul>
+                </div>
+                <div>
+                    <h2>Newsletter</h2>
+                    <p class="nl-text">Sign up to receive emails about events, news, and other opportunities from HPE DSI.</p>
+                    <button class="btn-sub" onclick="alert('Thank you for subscribing!')">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uh-footer-compliance">
+        <div class="container">
+            <div class="comp-links">
+                <span>&copy; 2025 University of Houston. All rights reserved.</span>
+                <span class="sep">|</span><span class="hl"><a href="#">Report a problem with this page</a></span>
+                <span class="sep">|</span><a href="#">Texas.gov</a>
+                <span class="sep">|</span><a href="#">Texas Homeland Security</a>
+                <span class="sep">|</span><a href="#">TRAIL</a>
+                <span class="sep">|</span><a href="#">Fraud Reporting</a>
+                <span class="sep">|</span><a href="#">Privacy Notice</a>
+                <span class="sep">|</span><a href="#">Linking Notice</a>
+                <span class="sep">|</span><a href="#">University Policies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-angle-up"></i></button>
+<script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('visible',scrollY>300));</script>
+</body>
+</html>

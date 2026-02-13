@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <title>DAR-SU26 | Training Courses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --uh-red:#C8102E;--uh-brick:#960C22;--uh-chocolate:#640817;
+            --uh-cream:#FFF9D9;--uh-slate:#54585A;--uh-gold:#F6BE00;
+            --uh-ltgray:#F2F2F2;--uh-green:#00866C;--text:#212529;--muted:#6c757d;--white:#fff;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.55;color:var(--text);background:var(--uh-ltgray);}
+        a{color:var(--uh-red);text-decoration:none;}
+        a:hover{color:var(--uh-brick);text-decoration:underline;}
+        h1,h2,h3{font-family:'League Gothic',sans-serif;font-weight:normal;text-transform:uppercase;}
+        .container{max-width:1200px;margin:0 auto;padding:0 1.25rem;}
+
+        /* ── Header ── */
+        .uh-header{background:var(--uh-brick);width:100%;position:relative;z-index:100;}
+        .global-nav{background:var(--uh-red);padding:0.5rem 1.25rem;display:flex;align-items:center;justify-content:space-between;}
+        .global-logo img{height:28px;width:auto;}
+        .nav-contact{list-style:none;display:flex;}
+        .nav-contact a{color:#fff;font-weight:bold;padding:0 1rem;font-size:.95rem;text-decoration:none;}
+        .nav-contact a:hover{color:var(--uh-cream);text-decoration:none;}
+        .site-name-bar{padding:.5rem 1.25rem;}
+        .site-name-bar h1{font-size:clamp(28px,4vw,56px);color:#fff;letter-spacing:.5px;word-spacing:2px;line-height:1.1;margin:0;}
+        .site-name-bar h1 a{color:#fff;text-decoration:none;}
+        .site-name-bar h1 a:hover{color:var(--uh-cream);text-decoration:none;}
+        .site-nav{background:var(--uh-brick);padding:0 1.25rem;margin-top:-3px;}
+        .site-nav ul{list-style:none;display:flex;flex-wrap:wrap;}
+        .site-nav .nav-link{color:var(--uh-cream);font-family:'Source Sans 3',sans-serif;font-size:clamp(15px,1.5vw,17px);font-weight:bold;padding:.6rem .65rem;display:inline-block;transition:background .2s;}
+        .site-nav .nav-link:hover{background:rgba(0,0,0,.1);color:var(--uh-cream);text-decoration:none;}
+        .site-nav .dd::after{content:"";display:inline-block;margin-left:.3em;vertical-align:.15em;border-top:5px solid currentColor;border-right:5px solid transparent;border-left:5px solid transparent;opacity:.5;}
+
+        /* ── Breadcrumb ── */
+        .breadcrumb-bar{background:var(--white);border-bottom:1px solid #dee2e6;padding:.75rem 0;}
+        .breadcrumb{display:flex;list-style:none;font-size:.9rem;color:var(--muted);gap:0;}
+        .breadcrumb li+li::before{content:"›";padding:0 .5rem;color:#aaa;}
+        .breadcrumb a{color:var(--uh-red);}
+
+        /* ── Main Layout ── */
+        .page-layout{display:grid;grid-template-columns:1fr 300px;gap:1.5rem;padding:1.5rem 0 3rem;align-items:start;}
+        @media(max-width:991px){.page-layout{grid-template-columns:1fr;}}
+
+        /* ── Cards ── */
+        .card{background:var(--white);border:1px solid #dee2e6;border-radius:6px;padding:1.5rem;margin-bottom:1.25rem;}
+        .card h2{font-size:1.5rem;margin-bottom:1rem;color:var(--text);}
+        .card h3{font-size:1.15rem;margin-bottom:.75rem;color:var(--text);}
+
+        /* ── Course Summary ── */
+        .course-title-box{background:var(--uh-red);color:#fff;padding:1.25rem 1.5rem;border-radius:6px 6px 0 0;margin:-1.5rem -1.5rem 1.5rem;}
+        .course-title-box h2{color:#fff;font-size:1.35rem;margin:0;text-transform:none;font-family:'League Gothic',sans-serif;letter-spacing:.3px;}
+        .course-title-box .sub{color:var(--uh-cream);font-size:.88rem;margin-top:.25rem;font-family:'Source Sans 3',sans-serif;}
+
+        .course-desc p{margin-bottom:.75rem;font-size:.93rem;line-height:1.65;}
+        .course-desc strong{color:var(--text);}
+
+        /* Register Button */
+        .btn-register{display:inline-block;background:var(--uh-red);color:#fff!important;border:none;padding:14px 32px;font-size:1rem;font-weight:700;cursor:pointer;border-radius:4px;margin:.75rem 0;text-decoration:none!important;transition:background .15s;}
+        .btn-register:hover{background:var(--uh-brick);}
+
+        /* Meta Grid */
+        .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;margin:1rem 0;font-size:.93rem;}
+        .meta-grid .label{font-weight:600;color:var(--muted);}
+        .meta-grid .value{color:var(--text);}
+        @media(max-width:600px){.meta-grid{grid-template-columns:1fr;}}
+
+        /* Steps Section */
+        .steps-section{margin-top:1.5rem;padding-top:1.5rem;border-top:2px solid var(--uh-ltgray);}
+        .steps-heading{font-family:'League Gothic',sans-serif;font-size:1.25rem;text-transform:uppercase;color:var(--uh-red);margin-bottom:1rem;}
+        .step-group{margin-bottom:1.25rem;padding:1rem 1.25rem;background:var(--uh-ltgray);border-radius:6px;border-left:4px solid var(--uh-red);}
+        .step-group h4{font-size:.95rem;font-weight:700;color:var(--uh-brick);margin-bottom:.4rem;}
+        .step-group p{font-size:.9rem;line-height:1.6;margin-bottom:.3rem;}
+        .step-group .fee{font-size:1rem;font-weight:700;color:var(--uh-green);}
+        .step-group .fee-paid{font-size:1rem;font-weight:700;color:var(--uh-red);}
+        .step-group a{color:var(--uh-red);font-weight:600;}
+        .step-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--uh-red);color:#fff;font-size:.75rem;font-weight:700;margin-right:6px;flex-shrink:0;}
+
+        /* Refund */
+        .refund-box{margin-top:1rem;font-size:.85rem;color:var(--muted);line-height:1.65;padding:1rem;background:#fafafa;border-radius:4px;border:1px solid #eee;}
+
+        /* ── Enrollment Form ── */
+        .enroll-card{border:2px solid var(--uh-red);border-radius:6px;overflow:hidden;}
+        .enroll-header{background:var(--uh-red);color:#fff;padding:1rem 1.5rem;display:flex;align-items:center;gap:10px;}
+        .enroll-header h3{color:#fff;margin:0;font-size:1.1rem;}
+        .enroll-body{padding:1.5rem;}
+        .enroll-body p{font-size:.9rem;color:var(--muted);margin-bottom:.75rem;line-height:1.6;}
+
+        .form-group{margin-bottom:1rem;}
+        .form-group label{display:block;font-size:.88rem;font-weight:600;margin-bottom:4px;color:var(--text);}
+        .form-group input,.form-group select{width:100%;padding:9px 12px;border:1px solid #ccc;border-radius:4px;font-size:.9rem;font-family:'Source Sans 3',sans-serif;}
+        .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--uh-red);box-shadow:0 0 0 3px rgba(200,16,46,.12);}
+
+        .checkbox-group{display:flex;align-items:flex-start;gap:8px;margin-bottom:.75rem;font-size:.9rem;}
+        .checkbox-group input[type=checkbox]{margin-top:4px;accent-color:var(--uh-red);width:18px;height:18px;flex-shrink:0;}
+
+        .btn-submit{background:var(--uh-red);color:#fff;border:none;padding:12px 28px;border-radius:4px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s;width:100%;}
+        .btn-submit:hover{background:var(--uh-brick);}
+        .btn-submit:disabled{background:#ccc;cursor:not-allowed;}
+
+        .note-box{font-size:.82rem;color:var(--muted);margin-top:.75rem;padding:.6rem .85rem;background:var(--uh-ltgray);border-radius:4px;line-height:1.5;}
+
+        .success-state{display:none;text-align:center;padding:2rem 1.5rem;}
+        .success-state i{font-size:3rem;color:var(--uh-green);margin-bottom:.75rem;}
+        .success-state h4{font-size:1.1rem;margin-bottom:.5rem;text-transform:none;font-family:'Source Sans 3',sans-serif;font-weight:700;}
+        .success-state p{font-size:.9rem;color:var(--muted);margin-bottom:.4rem;}
+
+        /* ── Sidebar ── */
+        .sidebar-card{background:var(--white);border:1px solid #dee2e6;border-radius:6px;overflow:hidden;margin-bottom:1rem;}
+        .sidebar-card h5{font-size:.95rem;font-weight:600;padding:.75rem 1rem;margin:0;border-bottom:1px solid #dee2e6;background:#fafafa;font-family:'Source Sans 3',sans-serif;}
+        .sidebar-nav{padding:.5rem 0;}
+        .sidebar-nav a{display:flex;align-items:center;gap:8px;padding:5px 1rem;font-size:.87rem;color:var(--uh-red);transition:background .1s;}
+        .sidebar-nav a:hover{background:var(--uh-ltgray);text-decoration:none;}
+        .sidebar-nav a i{width:16px;text-align:center;color:var(--muted);font-size:.8rem;}
+        .sidebar-tree{padding:.5rem 1rem;font-size:.85rem;}
+        .sidebar-tree ul{list-style:none;padding-left:1rem;}
+        .sidebar-tree>ul{padding-left:0;}
+        .sidebar-tree a{color:var(--uh-red);}
+        .sidebar-tree .tl{font-weight:600;cursor:pointer;color:var(--uh-brick);font-size:.87rem;}
+        .tree-ch{display:none;}.tree-ch.show{display:block;}
+
+        /* ── Footer ── */
+        .uh-footer-main{background:var(--uh-red);color:#fff;padding:3rem 0 2rem;font-size:.9rem;}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:2rem;}
+        @media(max-width:768px){.footer-grid{grid-template-columns:1fr;}}
+        .footer-logo img{width:260px;max-width:100%;height:auto;}
+        .footer-desc{font-size:.85rem;line-height:1.5;margin-top:1rem;max-width:380px;color:rgba(255,255,255,.85);}
+        .uh-footer-main h2{color:#fff;font-size:1.25rem;font-weight:normal;text-transform:uppercase;margin-bottom:1.25rem;position:relative;padding-bottom:.75rem;font-family:'League Gothic',sans-serif;}
+        .uh-footer-main h2::after{content:'';position:absolute;left:0;bottom:0;width:2.5rem;height:2px;background:var(--uh-cream);}
+        .fl-items{list-style:none;padding:0;}.fl-items a{color:var(--uh-cream);font-size:.9rem;line-height:2;}.fl-items a:hover{color:#fff;}
+        .nl-text{font-size:.85rem;color:var(--uh-cream);line-height:1.5;margin-bottom:1rem;}
+        .btn-sub{background:var(--uh-cream);color:var(--uh-red);font-size:1rem;font-weight:bold;text-transform:uppercase;border:none;padding:.75rem 1.5rem;border-radius:5px;cursor:pointer;}.btn-sub:hover{background:#fff;}
+        .uh-footer-compliance{background:var(--uh-slate);color:#fff;padding:1.25rem 0;font-size:.85rem;line-height:1.8;}
+        .comp-links{display:flex;flex-wrap:wrap;align-items:center;}
+        .comp-links .sep{color:rgba(255,255,255,.4);margin:0 .4rem;font-size:.8rem;}
+        .comp-links a{color:var(--uh-cream);font-size:.85rem;}.comp-links a:hover{color:#fff;}
+        .comp-links .hl a{color:var(--uh-gold);}.comp-links .hl a:hover{color:#fff;}
+        .btt{position:fixed;bottom:20px;right:20px;background:var(--uh-red);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:999;border:none;font-size:1.1rem;box-shadow:0 2px 8px rgba(0,0,0,.3);}.btt.visible{opacity:1;}
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="uh-header">
+    <div class="global-nav">
+        <div class="global-logo"><a href="index.html"><img src="uh-secondary.svg" alt="University of Houston"></a></div>
+        <ul class="nav-contact"><li><a href="mailto:contact@hpedsi.uh.edu">Contact</a></li></ul>
+    </div>
+    <div class="site-name-bar"><h1><a href="index.html">Hewlett Packard Enterprise Data Science Institute</a></h1></div>
+    <nav class="site-nav">
+        <ul>
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link dd" href="#">Education</a></li>
+            <li><a class="nav-link dd" href="#">Research Computing Data Core</a></li>
+            <li><a class="nav-link dd" href="#">News &amp; Events</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Summer 2026</a></li>
+            <li><span>211 Data Analysis in R (DAR-SU26)</span></li>
+        </ul>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <div class="page-layout">
+        <div>
+            <!-- Course Summary -->
+            <div class="card">
+                <div class="course-title-box">
+                    <h2>211 Data Analysis in R</h2>
+                    <div class="sub"><i class="fas fa-calendar-alt"></i> Mon Wed 5/27/2026 – 6/29/2026, 2:30 PM – 4:00 PM &nbsp;|&nbsp; DAR-SU26</div>
+                </div>
+
+                <div class="course-desc">
+                    <p><em>This course is a mandatory course of the Micro-credential in Advanced Data Science Program.</em> Ask about this program at <a href="mailto:contact@hpedsi.uh.edu">contact@hpedsi.uh.edu</a>.</p>
+
+                    <p>This course will teach you a basic understanding of how to program in R. You will learn how to use the R Studio software necessary for a statistical programming environment. The course covers reading data into R, accessing R packages, writing R functions, debugging, and commenting R code. We will introduce visualization concepts in R and you will also learn how to run R code on the HPE DSI HPC clusters.</p>
+
+                    <p><strong>Prerequisites:</strong> None. Intro to Linux/Cluster computing course provided by HPE DSI is recommended.</p>
+
+                    <a class="btn-register" href="#enroll-section"><i class="fas fa-pen-to-square" style="margin-right:6px;"></i> Register for HPE-DSI 211 Course</a>
+
+                    <p style="margin-top:.5rem;"><i class="fas fa-file-pdf" style="color:var(--uh-red);margin-right:4px;"></i> <a href="#">Syllabus</a> — <a href="#" target="_blank">Download PDF</a></p>
+                </div>
+
+                <!-- Course Meta -->
+                <div class="meta-grid" style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid #eee;">
+                    <div class="label">Instructor</div><div class="value">Dr. Ioannis Konstantinidis</div>
+                    <div class="label">Teaching Assistant</div><div class="value">Sathwik Sangeetham</div>
+                    <div class="label">Date</div><div class="value">May 27 – June 29, 2026</div>
+                    <div class="label">Time</div><div class="value">Mon Wed, 2:30 PM – 4:00 PM</div>
+                    <div class="label">Location</div><div class="value">Microsoft Teams (Online)</div>
+                    <div class="label">Capacity</div><div class="value">150 students</div>
+                </div>
+
+                <!-- Registration Steps -->
+                <div class="steps-section">
+                    <h3 class="steps-heading"><i class="fas fa-clipboard-list" style="margin-right:6px;"></i> Registration Instructions</h3>
+
+                    <div class="step-group">
+                        <h4><i class="fas fa-university" style="margin-right:6px;"></i> UH Main Campus Students, Staff &amp; Faculty</h4>
+                        <p>Log in to Canvas directly using your UH credentials. Registration is <span class="fee">FREE</span>.</p>
+                        <p><a href="https://uh.instructure.com" target="_blank"><i class="fas fa-external-link-alt"></i> Go to Canvas Login</a></p>
+                    </div>
+
+                    <div class="step-group">
+                        <h4><i class="fas fa-building" style="margin-right:6px;"></i> UH System Campuses (Clear Lake, Victoria, Downtown, Sugar Land, Katy)</h4>
+                        <p>Registration is <span class="fee">FREE</span>. You must complete the following <strong>at least 3 weeks before the course start date</strong>:</p>
+                        <p><span class="step-num">1</span> Fill in the <a href="https://secure.hpedsi.uh.edu/machform/view.php?id=93766" target="_blank">Credentials Form <i class="fas fa-external-link-alt" style="font-size:.75rem;"></i></a></p>
+                        <p style="font-size:.85rem;color:var(--muted);">This allows adequate time to process your course access credentials before the first class.</p>
+                    </div>
+
+                    <div class="step-group">
+                        <h4><i class="fas fa-user-graduate" style="margin-right:6px;"></i> UH Alumni</h4>
+                        <p>Registration Fee: <span class="fee-paid">$250.00</span> — <a href="#">See refund policy</a></p>
+                        <p>Complete both steps <strong>at least 3 weeks before the course start date</strong>:</p>
+                        <p><span class="step-num">1</span> Complete payment at <a href="https://store.mynsm.uh.edu/index.php?route=product/product&product_id=407&search=211+r+for+data+science" target="_blank">NSM Payment Portal <i class="fas fa-external-link-alt" style="font-size:.75rem;"></i></a></p>
+                        <p><span class="step-num">2</span> Fill in the <a href="https://secure.hpedsi.uh.edu/machform/view.php?id=93766" target="_blank">Credentials Form <i class="fas fa-external-link-alt" style="font-size:.75rem;"></i></a></p>
+                    </div>
+
+                    <div class="step-group">
+                        <h4><i class="fas fa-globe" style="margin-right:6px;"></i> Non-UH Affiliates</h4>
+                        <p>Registration Fee: <span class="fee-paid">$250.00</span> — <a href="#">See refund policy</a></p>
+                        <p>Complete both steps <strong>at least 3 weeks before the course start date</strong>:</p>
+                        <p><span class="step-num">1</span> Complete payment at <a href="https://store.mynsm.uh.edu/index.php?route=product/product&product_id=407&search=211+r+for+data+science" target="_blank">NSM Payment Portal <i class="fas fa-external-link-alt" style="font-size:.75rem;"></i></a></p>
+                        <p><span class="step-num">2</span> Fill in the <a href="https://secure.hpedsi.uh.edu/machform/view.php?id=93766" target="_blank">Credentials Form <i class="fas fa-external-link-alt" style="font-size:.75rem;"></i></a></p>
+                    </div>
+                </div>
+
+                <!-- Refund Info -->
+                <div class="refund-box">
+                    <strong>Withdrawal &amp; Refund Policy:</strong> To withdraw, use "Unenroll me" on the course page, or email <a href="mailto:contact@hpedsi.uh.edu">contact@hpedsi.uh.edu</a>.<br>
+                    &bull; More than 3 weeks before start: 10% cancellation fee &nbsp;
+                    &bull; Less than 3 weeks: 15% fee &nbsp;
+                    &bull; Less than 1 week: 25% fee &nbsp;
+                    &bull; 48 hours or less: No refund<br>
+                    All payments are non-transferable. If HPE DSI cancels a course, you will receive a full refund.
+                </div>
+            </div>
+
+            <!-- Enrollment Confirmation Form -->
+            <div class="enroll-card" id="enroll-section">
+                <div class="enroll-header">
+                    <i class="fas fa-user-check" style="font-size:1.2rem;"></i>
+                    <h3>Enrollment Confirmation</h3>
+                </div>
+                <div class="enroll-body" id="enrollForm">
+                    <p><strong>Already completed payment and credentials form?</strong> Confirm your enrollment below so we can process your Canvas access.</p>
+                    <p style="font-size:.85rem;">UH Main Campus members should <a href="https://uh.instructure.com" target="_blank">log in to Canvas directly</a> — this form is for UH System campuses, Alumni, and Non-UH Affiliates only.</p>
+
+                    <div class="form-group">
+                        <label for="fn">Full Name *</label>
+                        <input type="text" id="fn" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="em">Email Address *</label>
+                        <input type="email" id="em" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aff">Your Affiliation *</label>
+                        <select id="aff" onchange="handleAff()">
+                            <option value="">-- Select --</option>
+                            <option value="uh-sys">UH System Campus (Clear Lake, Victoria, Downtown, Sugar Land, Katy)</option>
+                            <option value="alumni">UH Alumni</option>
+                            <option value="external">Non-UH Affiliate</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="psid">PeopleSoft ID (UH members only)</label>
+                        <input type="text" id="psid" placeholder="Optional">
+                    </div>
+
+                    <div id="confirmChecks" style="display:none;margin:1rem 0;padding:1rem;background:var(--uh-ltgray);border-radius:6px;">
+                        <p style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;"><i class="fas fa-check-double" style="color:var(--uh-red);margin-right:4px;"></i> Please confirm you have completed the required steps:</p>
+                        <div class="checkbox-group" id="chkCred">
+                            <input type="checkbox" id="c1">
+                            <label for="c1">I have filled in the <a href="https://secure.hpedsi.uh.edu/machform/view.php?id=93766" target="_blank">Credentials Form</a></label>
+                        </div>
+                        <div class="checkbox-group" id="chkPay" style="display:none;">
+                            <input type="checkbox" id="c2">
+                            <label for="c2">I have completed the <a href="https://store.mynsm.uh.edu/index.php?route=product/product&product_id=407&search=211+r+for+data+science" target="_blank">course payment ($250.00)</a></label>
+                        </div>
+                    </div>
+
+                    <button class="btn-submit" onclick="submitEnroll()"><i class="fas fa-paper-plane" style="margin-right:6px;"></i> Confirm Enrollment</button>
+
+                    <div class="note-box">
+                        <i class="fas fa-info-circle" style="color:var(--uh-red);margin-right:4px;"></i>
+                        After confirming, you will receive Canvas access credentials via email within 2–3 business days.
+                    </div>
+                </div>
+
+                <div class="success-state" id="enrollSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Enrollment Confirmed!</h4>
+                    <p>Thank you for enrolling in <strong>211 Data Analysis in R (Summer 2026)</strong>.</p>
+                    <p>You will receive Canvas access credentials via email within 2–3 business days.</p>
+                    <p style="margin-top:1rem;"><a href="index.html" style="font-weight:600;color:var(--uh-red);"><i class="fas fa-arrow-left" style="margin-right:4px;"></i> Back to Course Listing</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+            <div class="sidebar-card">
+                <h5><i class="fas fa-bars" style="margin-right:6px;"></i> Navigation</h5>
+                <div class="sidebar-nav">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i> My Courses</a>
+                    <a href="#"><i class="fas fa-file-alt"></i> Refund Policies</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h5><i class="fas fa-book" style="margin-right:6px;"></i> Summer 2026 Courses</h5>
+                <div class="sidebar-nav">
+                    <a href="#"><i class="fas fa-graduation-cap"></i> 101 Intro to HPC (ICC-SU26)</a>
+                    <a href="course-dar-su26.html" style="background:var(--uh-ltgray);font-weight:600;"><i class="fas fa-graduation-cap"></i> 211 Data Analysis in R (DAR-SU26)</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i> 212 Python (SPP-SU26)</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i> 251 Visualization (DV-SU26)</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i> 261 Data Mgmt (PDM-SU26)</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i> 311 Machine Learning (IML-SU26)</a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i> 312 Deep Learning (IDL-SU26)</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h5><i class="fas fa-envelope" style="margin-right:6px;"></i> Questions?</h5>
+                <div style="padding:1rem;font-size:.9rem;color:var(--muted);line-height:1.5;">
+                    Please email us at <a href="mailto:contact@hpedsi.uh.edu">contact@hpedsi.uh.edu</a> if you have any questions about registration or courses.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="uh-footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><a href="index.html"><img src="uh-footer-logo.svg" alt="HPE DSI - University of Houston"></a></div>
+                    <p class="footer-desc">The Hewlett Packard Enterprise Data Science Institute is a University Research Institute in the UH Division of Research.</p>
+                </div>
+                <div><h2>Quick Links</h2><ul class="fl-items"><li><a href="#">HPE Gift</a></li><li><a href="#">Micro-Credential Programs</a></li><li><a href="mailto:contact@hpedsi.uh.edu">Contact</a></li></ul></div>
+                <div><h2>Learn More</h2><ul class="fl-items"><li><a href="#">Research Computing Data Core</a></li><li><a href="#">UH Division of Research</a></li><li><a href="#">UH Research Calendar</a></li></ul></div>
+                <div><h2>Newsletter</h2><p class="nl-text">Sign up to receive emails about events, news, and other opportunities from HPE DSI.</p><button class="btn-sub">Subscribe</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="uh-footer-compliance">
+        <div class="container">
+            <div class="comp-links">
+                <span>&copy; 2025 University of Houston. All rights reserved.</span>
+                <span class="sep">|</span><span class="hl"><a href="#">Report a problem with this page</a></span>
+                <span class="sep">|</span><a href="#">Texas.gov</a><span class="sep">|</span><a href="#">Texas Homeland Security</a>
+                <span class="sep">|</span><a href="#">TRAIL</a><span class="sep">|</span><a href="#">Fraud Reporting</a>
+                <span class="sep">|</span><a href="#">Privacy Notice</a><span class="sep">|</span><a href="#">Linking Notice</a>
+                <span class="sep">|</span><a href="#">University Policies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-angle-up"></i></button>
+
+<script>
+function handleAff(){
+    const v=document.getElementById('aff').value;
+    const cc=document.getElementById('confirmChecks');
+    const cp=document.getElementById('chkPay');
+    if(v){cc.style.display='block';}else{cc.style.display='none';}
+    if(v==='alumni'||v==='external'){cp.style.display='flex';}else{cp.style.display='none';}
+}
+
+function submitEnroll(){
+    const fn=document.getElementById('fn').value.trim();
+    const em=document.getElementById('em').value.trim();
+    const aff=document.getElementById('aff').value;
+    if(!fn||!em||!aff){alert('Please fill in all required fields.');return;}
+    const c1=document.getElementById('c1');
+    if(!c1.checked){alert('Please confirm you have filled in the Credentials Form.');return;}
+    if((aff==='alumni'||aff==='external')&&!document.getElementById('c2').checked){
+        alert('Please confirm you have completed the course payment.');return;
+    }
+    document.getElementById('enrollForm').style.display='none';
+    document.getElementById('enrollSuccess').style.display='block';
+}
+
+window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('visible',scrollY>300));
+
+document.querySelector('.btn-register').addEventListener('click',function(e){
+    e.preventDefault();
+    document.getElementById('enroll-section').scrollIntoView({behavior:'smooth',block:'start'});
+});
+</script>
+</body>
+</html>
